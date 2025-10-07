@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://d31orox0tyquy"]
+
+[ext_resource type="PackedScene" uid="uid://dmalre65ahiux" path="res://Escenas/menu/hud_portada.tscn" id="1_h8mh7"]
+
+[node name="Portada" type="Node2D"]
+
+[node name="Hud_Portada" parent="." instance=ExtResource("1_h8mh7")]
