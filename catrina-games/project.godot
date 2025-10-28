@@ -11,11 +11,16 @@ config_version=5
 [application]
 
 config/name="CatrinaGames"
-run/main_scene="uid://d31orox0tyquy" ; ← usa la escena de tu rama (puedes cambiarla si la otra es la correcta)
+run/main_scene="uid://d31orox0tyquy"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalPm="*res://Scrips/Recolectables/GlobalPM.gd"
+
 [dotnet]
+
 project/assembly_name="CatrinaGames"
 
 [input]
@@ -46,4 +51,5 @@ atacar={
 }
 
 [rendering]
+
 textures/canvas_textures/default_texture_filter=0

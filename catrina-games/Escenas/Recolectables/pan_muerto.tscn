@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://g2fspg7tga4a"]
+
+[ext_resource type="Script" uid="uid://d0u3a1qkotb66" path="res://Scrips/Recolectables/pan_muerto.gd" id="1_4jnqq"]
+[ext_resource type="Texture2D" uid="uid://dp46octroxkae" path="res://Almacen/Recursos/Recolectables/Pandemuerto.png" id="1_pmcv0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ul121"]
+atlas = ExtResource("1_pmcv0")
+region = Rect2(0, 0, 24, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujmgv"]
+atlas = ExtResource("1_pmcv0")
+region = Rect2(24, 0, 24, 27)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bdu25"]
+animations = [{
+"frames": [{
+"duration": 1.7,
+"texture": SubResource("AtlasTexture_ul121")
+}, {
+"duration": 1.7,
+"texture": SubResource("AtlasTexture_ujmgv")
+}],
+"loop": true,
+"name": &"Flotando",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_afjd8"]
+radius = 5.0
+height = 20.0
+
+[node name="PanMuerto" type="Area2D"]
+script = ExtResource("1_4jnqq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bdu25")
+animation = &"Flotando"
+autoplay = "Flotando"
+frame_progress = 0.17084165
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 3)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_afjd8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
