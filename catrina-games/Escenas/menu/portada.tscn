@@ -1,7 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://d31orox0tyquy"]
+[gd_scene load_steps=5 format=3 uid="uid://d31orox0tyquy"]
 
 [ext_resource type="PackedScene" uid="uid://dmalre65ahiux" path="res://Escenas/menu/hud_portada.tscn" id="1_h8mh7"]
+[ext_resource type="Script" uid="uid://d3ncf7nhl6ncy" path="res://Escenas/menu/hud_portada.gd" id="2_5x8hv"]
+[ext_resource type="Theme" uid="uid://8ukvhyi6viki" path="res://Almacen/Recursos/UI_Menu/DiceñoBoton.tres" id="3_0miqv"]
+[ext_resource type="FontFile" uid="uid://b42u5bbjqvm1b" path="res://Almacen/Fuentes/Thin Sans.ttf" id="4_vop86"]
 
 [node name="Portada" type="Node2D"]
 
 [node name="Hud_Portada" parent="." instance=ExtResource("1_h8mh7")]
+script = ExtResource("2_5x8hv")
+
+[node name="btnIniciar2" type="Button" parent="Hud_Portada"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -30.0
+offset_right = 85.5
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_0miqv")
+theme_override_fonts/font = ExtResource("4_vop86")
+theme_override_font_sizes/font_size = 25
+text = "Iniciar"
+
+[connection signal="pressed" from="Hud_Portada/btnIniciar2" to="Hud_Portada" method="_on_btn_iniciar_2_pressed"]
