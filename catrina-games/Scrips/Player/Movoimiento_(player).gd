@@ -5,6 +5,11 @@ const SPEED = 130.0
 const JUMP_VELOCITY = -340.0
 var esta_atacando: bool = false
 
+func respawn():
+	
+	global_position = Vector2(27, 210)
+	anima.play("resopanw")
+
 @onready var anima := $AnimationPlayer
 @onready var Sprint := $Sprite2D
 func _ready() -> void:

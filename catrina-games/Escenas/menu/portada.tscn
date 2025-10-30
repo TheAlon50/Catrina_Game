@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d31orox0tyquy"]
 
 [ext_resource type="PackedScene" uid="uid://dmalre65ahiux" path="res://Escenas/menu/hud_portada.tscn" id="1_h8mh7"]
-[ext_resource type="Script" uid="uid://d3ncf7nhl6ncy" path="res://Escenas/menu/hud_portada.gd" id="2_5x8hv"]
+[ext_resource type="Script" uid="uid://d3ncf7nhl6ncy" path="res://Scrips/Interfaz/hud_portada.gd" id="2_5x8hv"]
 [ext_resource type="Theme" uid="uid://8ukvhyi6viki" path="res://Almacen/Recursos/UI_Menu/DiceñoBoton.tres" id="3_0miqv"]
 [ext_resource type="FontFile" uid="uid://b42u5bbjqvm1b" path="res://Almacen/Fuentes/Thin Sans.ttf" id="4_vop86"]
 

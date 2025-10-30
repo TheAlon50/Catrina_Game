@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://d1wnk7ukrx12t"]
+[gd_scene load_steps=10 format=4 uid="uid://d1wnk7ukrx12t"]
 
 [ext_resource type="Texture2D" uid="uid://clrf46o73irxc" path="res://Almacen/Recursos/Tiles/tiles_MJajust.png" id="1_ux7eh"]
 [ext_resource type="PackedScene" uid="uid://cno31nfbcehlu" path="res://Escenas/player/MariaJose(Player).tscn" id="2_ykpde"]
 [ext_resource type="PackedScene" uid="uid://ryma3wj3k0e5" path="res://Escenas/Recolectables/contador_pan.tscn" id="3_4lsgh"]
 [ext_resource type="PackedScene" uid="uid://g2fspg7tga4a" path="res://Escenas/Recolectables/pan_muerto.tscn" id="3_211uj"]
 [ext_resource type="FontFile" uid="uid://b42u5bbjqvm1b" path="res://Almacen/Fuentes/Thin Sans.ttf" id="4_d7l6i"]
+[ext_resource type="PackedScene" uid="uid://c3kwknwhppmpf" path="res://Escenas/kill_zone/caida_muerte.tscn" id="6_bo7vh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ykpde"]
 texture = ExtResource("1_ux7eh")
@@ -66,6 +67,8 @@ tile_size = Vector2i(26, 26)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ykpde")
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bo7vh"]
+
 [node name="Nivel_1" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -102,3 +105,9 @@ position = Vector2(1780, 14)
 
 [node name="PanMuerto5" parent="." instance=ExtResource("3_211uj")]
 position = Vector2(1988, 67)
+
+[node name="CaidaMuerte" parent="." instance=ExtResource("6_bo7vh")]
+position = Vector2(-37, 294)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CaidaMuerte"]
+shape = SubResource("WorldBoundaryShape2D_bo7vh")
