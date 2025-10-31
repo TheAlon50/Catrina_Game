@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://clwaamltkkrd2"]
+[gd_scene load_steps=5 format=3 uid="uid://clwaamltkkrd2"]
 
 [ext_resource type="FontFile" uid="uid://b42u5bbjqvm1b" path="res://Almacen/Fuentes/Thin Sans.ttf" id="1_1t22r"]
 [ext_resource type="Script" uid="uid://b8cwdpw0hfsiu" path="res://Scrips/Player/gameover.gd" id="1_e3t3k"]
 [ext_resource type="Texture2D" uid="uid://056o1nor07iu" path="res://Almacen/Personajes/Player/DEAD.png" id="2_e3t3k"]
+[ext_resource type="AudioStream" uid="uid://7xshxc7xmufc" path="res://Almacen/Musica/bad ending.mp3" id="4_4xm0d"]
 
 [node name="Gameover" type="Control"]
 layout_mode = 3
@@ -44,8 +45,13 @@ scale = Vector2(2.436047, 2.6018515)
 texture = ExtResource("2_e3t3k")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 12.0
 one_shot = true
 autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4xm0d")
+volume_db = -7.195
+autoplay = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

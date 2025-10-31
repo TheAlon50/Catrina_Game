@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cw70ui5liopc1" path="res://Almacen/Recursos/Interfaz_Usuario/Corazon_Marco.png" id="9_esktu"]
 [ext_resource type="Texture2D" uid="uid://2b44d8n7nm3b" path="res://Almacen/Recursos/Interfaz_Usuario/Corazon_Lleno.png" id="10_86tta"]
 [ext_resource type="PackedScene" uid="uid://oscsa31qmtpc" path="res://Escenas/meta_provicional/Altar.tscn" id="12_86tta"]
-[ext_resource type="AudioStream" uid="uid://btsgurmusth3w" path="res://Almacen/Musica/VID-20251031-WA0028_001.mp3" id="13_750rq"]
+[ext_resource type="AudioStream" uid="uid://bhsv55l8ns51s" path="res://Almacen/Musica/gameplay.mp3" id="13_750rq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rqamo"]
 texture = ExtResource("1_6th8p")
@@ -3062,7 +3062,7 @@ shape = SubResource("RectangleShape2D_86tta")
 [node name="Altar" parent="." instance=ExtResource("12_86tta")]
 position = Vector2(3684, 52)
 
-[node name="AudioTemp" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_750rq")
+volume_db = -5.887
 autoplay = true
-parameters/looping = true

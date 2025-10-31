@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bksjv6a52f8mq"]
+[gd_scene load_steps=5 format=3 uid="uid://bksjv6a52f8mq"]
 
 [ext_resource type="Script" uid="uid://cjysqqkvris46" path="res://Scrips/Player/win.gd" id="1_1k1kf"]
 [ext_resource type="FontFile" uid="uid://b42u5bbjqvm1b" path="res://Almacen/Fuentes/Thin Sans.ttf" id="1_l22od"]
 [ext_resource type="Texture2D" uid="uid://b75et2c4jnfrb" path="res://Almacen/Personajes/Player/golpear/golpear(4).png" id="2_1k1kf"]
+[ext_resource type="AudioStream" uid="uid://upk4fqfn8du8" path="res://Almacen/Musica/good ending.mp3" id="4_82llp"]
 
 [node name="WIN" type="Control"]
 layout_mode = 3
@@ -42,8 +43,13 @@ scale = Vector2(2.436, 2.436)
 texture = ExtResource("2_1k1kf")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 11.0
 one_shot = true
 autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_82llp")
+volume_db = -7.849
+autoplay = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
