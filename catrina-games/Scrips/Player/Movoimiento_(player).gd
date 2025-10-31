@@ -1,11 +1,14 @@
 extends CharacterBody2D
 
+signal saludcambio
+
 var direccion := 0.0
 const SPEED = 130.0
 const JUMP_VELOCITY = -340.0
 var esta_atacando: bool = false
 var is_dead: bool = false # Bloquea el control durante el respawn
 var live := 3
+var max_live:=3
 
 @onready var anima := $AnimationPlayer
 @onready var Sprint := $Sprite2D
@@ -78,11 +81,17 @@ func _on_animation_finished(anim_name: StringName):
 
 func GameOver():
 	is_dead = false
+	# Llamar la función de cambio de escena después del frame actual
+	call_deferred("cambiar_escena_gameover")
+
+func cambiar_escena_gameover():
 	get_tree().change_scene_to_file("res://Escenas/GameOver/GAMEOVER.tscn")
 	
 func respawn():
 	is_dead = true
 	live -=1
+	saludcambio.emit()
+	
 	if live == 0:
 		GameOver()
 	else:
