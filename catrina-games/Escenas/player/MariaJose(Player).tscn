@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cno31nfbcehlu"]
+[gd_scene load_steps=30 format=3 uid="uid://cno31nfbcehlu"]
 
 [ext_resource type="Script" uid="uid://ub5l7s4me2im" path="res://Scrips/Player/Movoimiento_(player).gd" id="1_20v6q"]
 [ext_resource type="Texture2D" uid="uid://bwk37xwsyahhp" path="res://Almacen/Personajes/Player/correr/Correr(1).png" id="1_q38hi"]
@@ -17,9 +17,44 @@
 [ext_resource type="Texture2D" uid="uid://d0d7wswf1cnig" path="res://Almacen/Personajes/Player/salto/SALTO(2).png" id="14_0mjxg"]
 [ext_resource type="Texture2D" uid="uid://l1aohd4i48ni" path="res://Almacen/Personajes/Player/caida/caida(1).png" id="15_j1r8b"]
 [ext_resource type="Texture2D" uid="uid://bfm6grcxulna1" path="res://Almacen/Personajes/Player/caida/caida(2).png" id="16_gkxrf"]
+[ext_resource type="Texture2D" uid="uid://dsukmqthswhk8" path="res://Almacen/Personajes/Player/respawn/respawn(1).png" id="18_0bs6w"]
+[ext_resource type="Texture2D" uid="uid://c6gvelf1f1xbp" path="res://Almacen/Personajes/Player/respawn/respawn(2).png" id="19_1aleb"]
+[ext_resource type="Texture2D" uid="uid://d3iafjndmimw2" path="res://Almacen/Personajes/Player/respawn/respawn(3).png" id="20_gtewy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kfd1p"]
 height = 42.0
+
+[sub_resource type="Animation" id="Animation_f8q1l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_q38hi")]
+}
+
+[sub_resource type="Animation" id="Animation_y5lqe"]
+resource_name = "caida"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23486947, 0.3416283, 0.52769375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("15_j1r8b"), ExtResource("15_j1r8b"), ExtResource("16_gkxrf"), ExtResource("16_gkxrf")]
+}
 
 [sub_resource type="Animation" id="Animation_xf0d6"]
 resource_name = "correr"
@@ -36,21 +71,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("1_q38hi"), ExtResource("2_20v6q"), ExtResource("3_fn6ky"), ExtResource("4_q0jl7"), ExtResource("5_0bs6w"), ExtResource("6_1aleb")]
-}
-
-[sub_resource type="Animation" id="Animation_f8q1l"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("1_q38hi")]
 }
 
 [sub_resource type="Animation" id="Animation_muqb1"]
@@ -85,6 +105,23 @@ tracks/0/keys = {
 "values": [ExtResource("11_w45e2"), ExtResource("11_w45e2"), ExtResource("12_trm2k"), ExtResource("12_trm2k")]
 }
 
+[sub_resource type="Animation" id="Animation_3daqp"]
+resource_name = "resopanw"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.03, 0.20982568, 0.39748666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("18_0bs6w"), ExtResource("19_1aleb"), ExtResource("20_gtewy")]
+}
+
 [sub_resource type="Animation" id="Animation_5j1p2"]
 resource_name = "salto"
 length = 0.6
@@ -101,23 +138,6 @@ tracks/0/keys = {
 "values": [ExtResource("13_pmt7d"), ExtResource("13_pmt7d"), ExtResource("14_0mjxg"), ExtResource("14_0mjxg")]
 }
 
-[sub_resource type="Animation" id="Animation_y5lqe"]
-resource_name = "caida"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.23486947, 0.3416283, 0.52769375),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("15_j1r8b"), ExtResource("15_j1r8b"), ExtResource("16_gkxrf"), ExtResource("16_gkxrf")]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_erlvo"]
 _data = {
 &"RESET": SubResource("Animation_f8q1l"),
@@ -125,6 +145,7 @@ _data = {
 &"correr": SubResource("Animation_xf0d6"),
 &"golpear": SubResource("Animation_muqb1"),
 &"inactivo": SubResource("Animation_h1m2w"),
+&"resopanw": SubResource("Animation_3daqp"),
 &"salto": SubResource("Animation_5j1p2")
 }
 

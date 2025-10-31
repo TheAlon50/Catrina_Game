@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="CatrinaGames"
-run/main_scene="uid://d1wnk7ukrx12t"
+run/main_scene="uid://d31orox0tyquy"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GlobalPm="*res://Scrips/Recolectables/GlobalPM.gd"
 
 [dotnet]
 
