@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ryma3wj3k0e5"]
+
+[ext_resource type="Script" uid="uid://c84ijpndjvtut" path="res://Scrips/Recolectables/contador_pan.gd" id="1_gk8an"]
+
+[node name="Contador_Pan" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "PAN:"
+script = ExtResource("1_gk8an")

@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=3 uid="uid://vl8w4kqn5hrt"]
+
+[ext_resource type="Script" uid="uid://b7qrxeey6c2lh" path="res://Scrips/Enemigo/Enemy.gd" id="1_dbsd8"]
+[ext_resource type="Texture2D" uid="uid://ddpmvhmiinruy" path="res://Almacen/Enemigos/Generico/Frames Walk/Walk1.png" id="2_6dvtt"]
+[ext_resource type="AnimationLibrary" uid="uid://df114efxeg4n0" path="res://Almacen/Enemigos/Generico/Animacion Generico.res" id="3_imkjk"]
+[ext_resource type="Texture2D" uid="uid://bsh03almcvuff" path="res://Almacen/Enemigos/Generico/Disparo/Disparo1.png" id="4_xqa8i"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oncqj"]
+radius = 6.0
+height = 56.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hlgye"]
+radius = 6.3245554
+
+[node name="Generico" type="CharacterBody2D" groups=["Generico"]]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_dbsd8")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_6dvtt")
+
+[node name="Generico" type="AnimationPlayer" parent="."]
+root_node = NodePath(".")
+libraries = {
+&"": ExtResource("3_imkjk")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("CapsuleShape2D_oncqj")
+
+[node name="Camino" type="RayCast2D" parent="."]
+position = Vector2(11, 11)
+exclude_parent = false
+target_position = Vector2(0, 25)
+collide_with_areas = true
+
+[node name="Izquierda" type="RayCast2D" parent="."]
+position = Vector2(-10, 0)
+exclude_parent = false
+target_position = Vector2(-100, 0)
+collision_mask = 2
+
+[node name="Derecha" type="RayCast2D" parent="."]
+position = Vector2(10, 0)
+exclude_parent = false
+target_position = Vector2(100, 0)
+collision_mask = 2
+collide_with_areas = true
+
+[node name="Fuego" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(38, 1)
+texture = ExtResource("4_xqa8i")
+
+[node name="Hit" type="Area2D" parent="Fuego"]
+position = Vector2(-30, 1)
+scale = Vector2(-1, 1)
+collision_layer = 0
+collision_mask = 2
+
+[node name="Disparo" type="CollisionShape2D" parent="Fuego/Hit"]
+position = Vector2(7, -2)
+shape = SubResource("CircleShape2D_hlgye")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Fuego/Hit" to="." method="_on_hit_body_entered"]
