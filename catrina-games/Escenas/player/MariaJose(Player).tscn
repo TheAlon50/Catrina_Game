@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=3 uid="uid://cno31nfbcehlu"]
 
-[ext_resource type="Script" uid="uid://cuo8kk5qcro6w" path="res://Scrips/Player/Movoimiento_(player).gd" id="1_20v6q"]
+[ext_resource type="Script" uid="uid://ub5l7s4me2im" path="res://Scrips/Player/Movoimiento_(player).gd" id="1_20v6q"]
 [ext_resource type="Texture2D" uid="uid://bwk37xwsyahhp" path="res://Almacen/Personajes/Player/correr/Correr(1).png" id="1_q38hi"]
 [ext_resource type="Texture2D" uid="uid://bo1r5s0on3w8w" path="res://Almacen/Personajes/Player/correr/Correr(2).png" id="2_20v6q"]
 [ext_resource type="Texture2D" uid="uid://ti5om0ehnm2" path="res://Almacen/Personajes/Player/correr/Correr(3).png" id="3_fn6ky"]
@@ -22,7 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://d3iafjndmimw2" path="res://Almacen/Personajes/Player/respawn/respawn(3).png" id="20_gtewy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kfd1p"]
-height = 42.0
+height = 38.0
 
 [sub_resource type="Animation" id="Animation_f8q1l"]
 length = 0.001
@@ -37,18 +37,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("1_q38hi")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Area2D/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_y5lqe"]
@@ -99,18 +87,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("7_gtewy"), ExtResource("8_3daqp"), ExtResource("9_7kkq1"), ExtResource("10_sa18k")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Area2D/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.35),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, false]
 }
 
 [sub_resource type="Animation" id="Animation_h1m2w"]
@@ -194,14 +170,10 @@ libraries = {
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(1, 0)
-collision_layer = 4
-collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(14, -23)
 shape = SubResource("CircleShape2D_0bs6w")
-disabled = true
 debug_color = Color(0.9644266, 0.5922799, 0.65998983, 0.41960785)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

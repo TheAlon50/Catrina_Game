@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1vyxn6k8ednb"]
+
+[ext_resource type="Texture2D" uid="uid://bqr86ke0k384v" path="res://Almacen/Recursos/Interfaz_Usuario/Corazon_Vacio.png" id="1_u2uji"]
+[ext_resource type="Texture2D" uid="uid://cw70ui5liopc1" path="res://Almacen/Recursos/Interfaz_Usuario/Corazon_Marco.png" id="2_gt1jh"]
+[ext_resource type="Texture2D" uid="uid://2b44d8n7nm3b" path="res://Almacen/Recursos/Interfaz_Usuario/Corazon_Lleno.png" id="3_ykoat"]
+
+[node name="BarraVida" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+max_value = 3.0
+value = 3.0
+fill_mode = 2
+texture_under = ExtResource("1_u2uji")
+texture_over = ExtResource("2_gt1jh")
+texture_progress = ExtResource("3_ykoat")

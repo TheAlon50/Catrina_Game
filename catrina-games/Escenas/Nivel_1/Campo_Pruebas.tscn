@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=4 uid="uid://d1wnk7ukrx12t"]
+[gd_scene load_steps=5 format=4 uid="uid://d1wnk7ukrx12t"]
 
 [ext_resource type="Texture2D" uid="uid://dvfm4c2n1l1ih" path="res://Almacen/Recursos/Sprites/Sp_Nivel_1/tiles_MJ.png" id="1_hgj0q"]
 [ext_resource type="PackedScene" uid="uid://cno31nfbcehlu" path="res://Escenas/player/MariaJose(Player).tscn" id="2_8yl6m"]
-[ext_resource type="PackedScene" uid="uid://vl8w4kqn5hrt" path="res://Escenas/Enemys/Enemy.tscn" id="3_8yl6m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ykpde"]
 texture = ExtResource("1_hgj0q")
@@ -56,12 +55,8 @@ tile_map_data = PackedByteArray("AAD7////AgABAAAAAAD8////AgABAAAAAAD9////AgABAAA
 tile_set = SubResource("TileSet_211uj")
 
 [node name="MariaJose(Player)" parent="." instance=ExtResource("2_8yl6m")]
-position = Vector2(165, -81)
-collision_layer = 2
+position = Vector2(-32, -29)
 
 [node name="Camera2D" type="Camera2D" parent="MariaJose(Player)"]
 position = Vector2(0, -26)
 zoom = Vector2(4, 4)
-
-[node name="Generico" parent="." instance=ExtResource("3_8yl6m")]
-position = Vector2(293, -162)
