@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmalre65ahiux"]
+[gd_scene load_steps=3 format=3 uid="uid://dmalre65ahiux"]
 
 [ext_resource type="Theme" uid="uid://8ukvhyi6viki" path="res://Almacen/Recursos/UI_Menu/DiceñoBoton.tres" id="1_1x82y"]
+[ext_resource type="FontFile" uid="uid://b42u5bbjqvm1b" path="res://Almacen/Fuentes/Thin Sans.ttf" id="2_3ko2o"]
 
 [node name="Hud_Portada" type="CanvasLayer"]
 
@@ -17,4 +18,6 @@ offset_bottom = 27.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_1x82y")
+theme_override_fonts/font = ExtResource("2_3ko2o")
+theme_override_font_sizes/font_size = 25
 text = "Iniciar"
