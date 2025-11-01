@@ -22,7 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://d3iafjndmimw2" path="res://Almacen/Personajes/Player/respawn/respawn(3).png" id="20_gtewy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kfd1p"]
-height = 42.0
+height = 38.0
 
 [sub_resource type="Animation" id="Animation_f8q1l"]
 length = 0.001

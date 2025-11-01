@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d31orox0tyquy"]
+[gd_scene load_steps=6 format=3 uid="uid://d31orox0tyquy"]
 
 [ext_resource type="PackedScene" uid="uid://dmalre65ahiux" path="res://Escenas/menu/hud_portada.tscn" id="1_h8mh7"]
 [ext_resource type="Script" uid="uid://d3ncf7nhl6ncy" path="res://Scrips/Interfaz/hud_portada.gd" id="2_5x8hv"]
 [ext_resource type="Theme" uid="uid://8ukvhyi6viki" path="res://Almacen/Recursos/UI_Menu/DiceñoBoton.tres" id="3_0miqv"]
 [ext_resource type="FontFile" uid="uid://b42u5bbjqvm1b" path="res://Almacen/Fuentes/Thin Sans.ttf" id="4_vop86"]
+[ext_resource type="AudioStream" uid="uid://b7mbmkxw0olju" path="res://Almacen/Musica/intro.mp3" id="5_0miqv"]
 
 [node name="Portada" type="Node2D"]
 
@@ -37,5 +38,8 @@ theme_override_colors/font_outline_color = Color(0.004244301, 0.004244303, 0.004
 theme_override_fonts/font = ExtResource("4_vop86")
 theme_override_font_sizes/font_size = 40
 text = "Maria En El Mictlan"
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_0miqv")
+autoplay = true
 
 [connection signal="pressed" from="Hud_Portada/btnIniciar2" to="Hud_Portada" method="_on_btn_iniciar_2_pressed"]
