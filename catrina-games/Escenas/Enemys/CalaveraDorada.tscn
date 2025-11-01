@@ -1,0 +1,273 @@
+[gd_scene load_steps=23 format=3 uid="uid://bxdb5ql2sblus"]
+
+[ext_resource type="Script" uid="uid://dxhn6co3yiabg" path="res://Scrips/Enemigo/calavera_dorada.gd" id="1_sfnht"]
+[ext_resource type="Texture2D" uid="uid://da6qdrw2748qi" path="res://Almacen/Enemigos/Calavera/Atacar/Atacar2.png" id="2_n2h3d"]
+[ext_resource type="Texture2D" uid="uid://4yxxx6w1b3yk" path="res://Almacen/Enemigos/Calavera/Atacar/Atacar1.png" id="3_nl85q"]
+[ext_resource type="Texture2D" uid="uid://b24pc8i767yge" path="res://Almacen/Enemigos/Calavera/Atacar/Atacar3.png" id="4_0fsfh"]
+[ext_resource type="Texture2D" uid="uid://bmat1lxbekv8q" path="res://Almacen/Enemigos/Calavera/Atacar/Atacar4.png" id="5_0i0ko"]
+[ext_resource type="Texture2D" uid="uid://dvv44f1vqj2un" path="res://Almacen/Enemigos/Calavera/Death/Death.png" id="6_1ukjn"]
+[ext_resource type="Texture2D" uid="uid://bwedkoxqajunq" path="res://Almacen/Enemigos/Calavera/Death/Death2.png" id="7_xds6t"]
+[ext_resource type="Texture2D" uid="uid://ddo54e1n8c6nb" path="res://Almacen/Enemigos/Calavera/Death/Death3.png" id="8_i2gx2"]
+[ext_resource type="Texture2D" uid="uid://brpnlbfunybe7" path="res://Almacen/Enemigos/Calavera/Death/Death4.png" id="9_0iw5v"]
+[ext_resource type="Texture2D" uid="uid://bpe0qoxh3axuq" path="res://Almacen/Enemigos/Calavera/Death/Death5.png" id="10_mc471"]
+[ext_resource type="Texture2D" uid="uid://urw5gg6bu65t" path="res://Almacen/Enemigos/Calavera/Hurt/Hurt2.png" id="11_x0xm6"]
+[ext_resource type="Texture2D" uid="uid://c6418sgo8dfi6" path="res://Almacen/Enemigos/Calavera/Hurt/Hurt.png" id="12_mljan"]
+[ext_resource type="Texture2D" uid="uid://yce2u37wiw2l" path="res://Almacen/Enemigos/Calavera/Hurt/Hurt3.png" id="13_c06md"]
+[ext_resource type="Script" uid="uid://cscewe1kk7jsn" path="res://Scrips/Enemigo/Movimiento.gd" id="14_asj5y"]
+[ext_resource type="PackedScene" uid="uid://6p8pbpmhf61g" path="res://Scrips/Enemigo/sensor.tscn" id="14_qv5ni"]
+[ext_resource type="PackedScene" uid="uid://buj5y4kjlg8tw" path="res://Scrips/Enemigo/movimiento.tscn" id="16_cx76r"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_asj5y"]
+points = PackedVector2Array(13, -30, 22, -16, 20, -1, 15, 6, 9, 8, 8, 17, 2, 23, -14, 23, -16, 12, -23, 5, -23, -13, -18, -20, -6, -30)
+
+[sub_resource type="Animation" id="Animation_vy3al"]
+resource_name = "Atacar"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Calavera:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_nl85q"), ExtResource("2_n2h3d"), ExtResource("4_0fsfh"), ExtResource("5_0i0ko")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Collision Ca:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(0, -2), Vector2(0, -2), Vector2(15, -3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hit:enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.95, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Derecha:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Izquierda:enabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_025u1"]
+resource_name = "Death"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Calavera:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("6_1ukjn"), ExtResource("7_xds6t"), ExtResource("8_i2gx2"), ExtResource("9_0iw5v"), ExtResource("10_mc471")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Collision Ca:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.29),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="Animation" id="Animation_2p8wa"]
+resource_name = "Hurt"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Calavera:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("11_x0xm6"), ExtResource("12_mljan"), ExtResource("11_x0xm6"), ExtResource("12_mljan"), ExtResource("13_c06md"), ExtResource("12_mljan")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Collision Ca:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_prj7g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Calavera:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_n2h3d")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Collision Ca:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, -1), Vector2(2, -1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Collision Ca:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0009999999),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hit:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Derecha:enabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Izquierda:enabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ie0j0"]
+_data = {
+&"Atacar": SubResource("Animation_vy3al"),
+&"Death": SubResource("Animation_025u1"),
+&"Hurt": SubResource("Animation_2p8wa"),
+&"RESET": SubResource("Animation_prj7g")
+}
+
+[node name="CalaveraDorada" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_sfnht")
+
+[node name="Calavera" type="Sprite2D" parent="."]
+position = Vector2(1, -4)
+texture = ExtResource("2_n2h3d")
+
+[node name="Collision Ca" type="CollisionShape2D" parent="."]
+position = Vector2(2, -1)
+shape = SubResource("ConvexPolygonShape2D_asj5y")
+
+[node name="Dorada" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ie0j0")
+}
+script = ExtResource("14_asj5y")
+
+[node name="Movimiento" parent="." instance=ExtResource("16_cx76r")]
+script = ExtResource("14_asj5y")
+
+[node name="Sensor" parent="." instance=ExtResource("14_qv5ni")]
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="Hit" type="RayCast2D" parent="."]
+position = Vector2(-22, 13)
+scale = Vector2(0.5, 3)
+enabled = false
+target_position = Vector2(-20, 0)
+collision_mask = 2
+
+[node name="Derecha" type="RayCast2D" parent="."]
+position = Vector2(15, 9.999999)
+rotation = 0.62831855
+scale = Vector2(0.5, 8)
+target_position = Vector2(5.587208, 0.055308163)
+collision_mask = 2
+
+[node name="Izquierda" type="RayCast2D" parent="."]
+position = Vector2(-18, 11)
+rotation = -0.48694685
+scale = Vector2(0.5, 7)
+target_position = Vector2(-5.510969, 0.4381618)
+collision_mask = 2

@@ -18,6 +18,7 @@ func _ready() -> void:
 	$Area2D/CollisionShape2D.disabled = true
 
 func _physics_process(delta: float) -> void:
+
 	if is_dead:
 		velocity = Vector2.ZERO
 		return
@@ -102,12 +103,12 @@ func respawn():
 		await get_tree().create_timer(0.95).timeout 
 		if is_dead:
 			is_dead = false
-
-
+	
 	#detector de colicion en ataque
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	pass #para que no crache el juego/ quitalo despues
-	
-	#para eliminar los enemigos de un toque / mejor agregar llamada de golpe a tu enemigoo
-	#if body.is_in_group("enemigos")
-		#body.queue_free()
+	if body.is_in_group("Chaman"):
+		Vida.Chaman -= 1
+		Vida.SeñalC = true
+	if body.is_in_group("Generico"):
+		Vida.Generico -= 1
+		Vida.SeñalG = true

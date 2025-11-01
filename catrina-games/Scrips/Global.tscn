@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b20dd2eg0qnvq"]
+
+[ext_resource type="Script" uid="uid://dcy6tnxcqt6ma" path="res://Scrips/Enemigo/Global.gd" id="1_s5o8y"]
+
+[node name="Vida" type="Node"]
+script = ExtResource("1_s5o8y")
