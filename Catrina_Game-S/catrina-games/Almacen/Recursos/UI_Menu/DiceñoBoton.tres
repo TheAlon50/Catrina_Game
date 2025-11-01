@@ -1,0 +1,18 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://8ukvhyi6viki"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j2big"]
+bg_color = Color(0.76141256, 0.55296886, 0.3211808, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4564051, 0.2596725, 0.14333114, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[resource]
+Button/font_sizes/font_size = 24
+Button/fonts/font = null
+Button/styles/normal = SubResource("StyleBoxFlat_j2big")
