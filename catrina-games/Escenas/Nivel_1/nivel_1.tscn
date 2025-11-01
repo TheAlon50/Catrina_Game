@@ -3016,9 +3016,10 @@ position = Vector2(2667, 21)
 position = Vector2(2967, 70)
 
 [node name="CaidaMuerte" parent="." instance=ExtResource("6_bo7vh")]
-position = Vector2(-37, 294)
+position = Vector2(-39, 277)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="CaidaMuerte"]
+position = Vector2(134, 0)
 shape = SubResource("WorldBoundaryShape2D_bo7vh")
 
 [node name="MariaJose(Player)" parent="." instance=ExtResource("2_ykpde")]
