@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmalre65ahiux"]
+
+[ext_resource type="Theme" uid="uid://8ukvhyi6viki" path="res://Almacen/Recursos/UI_Menu/DiceñoBoton.tres" id="1_1x82y"]
+[ext_resource type="Texture2D" uid="uid://de57gocvggsso" path="res://Almacen/Recursos/UI_Menu/Calaveritas pantalla inicio.png" id="1_vd05v"]
+[ext_resource type="FontFile" uid="uid://b42u5bbjqvm1b" path="res://Almacen/Fuentes/Thin Sans.ttf" id="2_3ko2o"]
+
+[node name="Hud_Portada" type="CanvasLayer"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_vd05v")
+
+[node name="btnIniciar" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.49800003
+anchor_right = 0.5
+anchor_bottom = 0.49800003
+offset_left = -80.0
+offset_top = -33.45401
+offset_right = 85.5
+offset_bottom = 33.54599
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_1x82y")
+theme_override_fonts/font = ExtResource("2_3ko2o")
+theme_override_font_sizes/font_size = 25
+text = "Iniciar"
