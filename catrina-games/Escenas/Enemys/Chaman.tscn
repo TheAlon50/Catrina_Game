@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c14ad71h4rkpl"]
+[gd_scene load_steps=28 format=3 uid="uid://c14ad71h4rkpl"]
 
 [ext_resource type="Script" uid="uid://hwlode8tgrjm" path="res://Scrips/Enemigo/chaman.gd" id="1_v6gdo"]
 [ext_resource type="Texture2D" uid="uid://cp8iv6iligkqx" path="res://Almacen/Enemigos/Chaman/Frames Walk/Walk1.png" id="2_v6gdo"]
@@ -18,13 +18,14 @@
 [ext_resource type="Texture2D" uid="uid://bke5ew5pxe8ii" path="res://Almacen/Enemigos/Chaman/Frames Hurt/Hurt1.2.png" id="16_o13to"]
 [ext_resource type="Texture2D" uid="uid://bahmef2j205vd" path="res://Almacen/Enemigos/Chaman/Frames Hurt/Hurt1.png" id="17_otdgd"]
 [ext_resource type="Texture2D" uid="uid://dlrsk1ayd7dxw" path="res://Almacen/Enemigos/Chaman/Frames Hurt/Hurt2.png" id="18_u13yy"]
+[ext_resource type="PackedScene" uid="uid://dg7ll1s14ksoy" path="res://Ataque.tscn" id="19_xgq33"]
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_opu10"]
 points = PackedVector2Array(29, 19, 29, 5, 21, 6, 15, 7, 5, 14, -2, 25, -8, 37, -9, 41, 29, 42, 28, 36, 27, 23)
 
 [sub_resource type="Animation" id="Animation_sk04x"]
 resource_name = "Atacar"
-length = 3.0
+length = 2.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -76,86 +77,74 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Hit:enabled")
+tracks/4/path = NodePath("Camino:enabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.06666667, 1.18, 1.2, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [false, false, true, true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Hit:scale")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(1.2, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [Vector2(1.004, 8), Vector2(1, 6)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Hit:target_position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(1.2, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [Vector2(51.79283, 0.25), Vector2(91, 0.8333334)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Camino:enabled")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
 "times": PackedFloat32Array(0, 2.86, 3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, false, true]
 }
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Collision Cha:disabled")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Collision Cha:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
 }
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Izquierda:enabled")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Izquierda:enabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Derecha:enabled")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Derecha:enabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Ataque/Verde:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(1.24, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Ataque/Verde:shape:points")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(1.93, 2.03),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [PackedVector2Array(-6, -2, -5, 8, -7, 13, 1, 15, 9, 16, 16, 16, 18, 14, 18, 6, 20, 3, 25, 3, 27, -1, 28, -8, 28, -15, 22, -16, 15, -21, -3, -21, -7, -19, -18, -15, -17, -10), PackedVector2Array(-6, -2, -5, 8, -7, 13, 1, 15, 9, 16, 16, 16, 50, 16, 62, 10, 56, 7, 42, 8, 31, 1, 37, 0, 41, -1, 63, -1, 62, -6, 58, -14, 27, -13, 14, -21, -4, -22, -20, -15)]
 }
 
 [sub_resource type="Animation" id="Animation_0ss75"]
@@ -224,14 +213,14 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Hit:enabled")
+tracks/5/path = NodePath("Ataque/Verde:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_34a3v"]
@@ -324,14 +313,14 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Hit:enabled")
+tracks/7/path = NodePath("Ataque/Verde:disabled")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_w3lk6"]
@@ -375,31 +364,31 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Hit:target_position")
+tracks/3/path = NodePath("Collision Cha:shape:points")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(91, 0.8333334)]
+"values": [PackedVector2Array(29, 19, 29, 5, 21, 6, 15, 7, 5, 14, -2, 25, -8, 37, -9, 41, 29, 42, 28, 36, 27, 23)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Collision Cha:shape:points")
+tracks/4/path = NodePath("Derecha:enabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [PackedVector2Array(29, 19, 29, 5, 21, 6, 15, 7, 5, 14, -2, 25, -8, 37, -9, 41, 29, 42, 28, 36, 27, 23)]
+"update": 1,
+"values": [true]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Derecha:enabled")
+tracks/5/path = NodePath("Izquierda:enabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -411,7 +400,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Izquierda:enabled")
+tracks/6/path = NodePath("Camino:enabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -423,7 +412,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Camino:enabled")
+tracks/7/path = NodePath("Ataque/Verde:disabled")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -435,14 +424,14 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Hit:enabled")
+tracks/8/path = NodePath("Ataque/Verde:shape:points")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [PackedVector2Array(-6, -2, -5, 8, -7, 13, 1, 15, 9, 16, 16, 16, 18, 14, 18, 6, 20, 3, 25, 3, 27, -1, 28, -8, 28, -15, 22, -16, 15, -21, -3, -21, -7, -19, -18, -15, -17, -10)]
 }
 
 [sub_resource type="Animation" id="Animation_opu10"]
@@ -559,14 +548,14 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Hit:enabled")
+tracks/9/path = NodePath("Ataque/Verde:disabled")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wlmyx"]
@@ -577,6 +566,9 @@ _data = {
 &"RESET": SubResource("Animation_w3lk6"),
 &"Walk": SubResource("Animation_opu10")
 }
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_6i47k"]
+points = PackedVector2Array(-6, -2, -5, 8, -7, 13, 1, 15, 9, 16, 16, 16, 18, 14, 18, 6, 20, 3, 25, 3, 27, -1, 28, -8, 28, -15, 22, -16, 15, -21, -3, -21, -7, -19, -18, -15, -17, -10)
 
 [node name="Chaman" type="CharacterBody2D" groups=["Chaman"]]
 collision_layer = 4
@@ -615,13 +607,16 @@ target_position = Vector2(53, 0)
 collision_mask = 2
 collide_with_areas = true
 
-[node name="Hit" type="RayCast2D" parent="." groups=["Chaman"]]
-position = Vector2(0, -11)
-scale = Vector2(1, 6)
-enabled = false
-target_position = Vector2(91, 0.8333334)
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Ataque" parent="." instance=ExtResource("19_xgq33")]
+position = Vector2(27, -10)
+collision_layer = 0
 collision_mask = 2
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Verde" type="CollisionShape2D" parent="Ataque"]
+position = Vector2(0, 2)
+shape = SubResource("ConvexPolygonShape2D_6i47k")
+disabled = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

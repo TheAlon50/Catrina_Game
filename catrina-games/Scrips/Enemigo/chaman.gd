@@ -6,11 +6,11 @@ var walk_left = true
 var speed = 32
 var Stop = false
 var Dead = false
-
+var body
 @onready var anima = $Chaman
 @onready var Spri = $Chama
 @onready var Coll = $"Collision Cha"
-@export var player: CharacterBody2D
+
 
 func _physics_process(_delta):
 	if Dead == true: 
@@ -31,7 +31,6 @@ func _physics_process(_delta):
 				Dead = true
 		else:
 			Atacar()
-			Daño()
 			Caminar()
 			Turn() 
 	
@@ -42,19 +41,13 @@ func Atacar():
 	if $"Izquierda".is_colliding():
 			Stop = true
 			anima.play("Atacar")
-			$"Hit".scale.x = 1
 			Spri.flip_h = false
 	else:
 		if $"Derecha".is_colliding():
 			Stop = true
-			$"Hit".scale.x = -1
 			anima.play("Atacar")
 			Spri.flip_h = true
-#Daño a jugador
-func Daño():
-	if $"Hit".is_colliding():
-		player.Live = -1
-		saludcambio.emit()
+			
 
 func Caminar():
 	if (Stop == false):
@@ -83,6 +76,7 @@ func _on_AnimatedSprite_frame_change():
 func _on_AnimatedSprite_animation_finished():
 	if anima.animation == "Death":
 		Spri.visible = false
+
 
 
 	

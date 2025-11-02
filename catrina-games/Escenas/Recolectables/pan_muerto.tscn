@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://g2fspg7tga4a"]
 
-[ext_resource type="Script" uid="uid://d0u3a1qkotb66" path="res://Scrips/Recolectables/pan_muerto.gd" id="1_4jnqq"]
+[ext_resource type="Script" uid="uid://dg85v2bflliam" path="res://Scrips/Recolectables/pan_muerto.gd" id="1_4jnqq"]
 [ext_resource type="Texture2D" uid="uid://dp46octroxkae" path="res://Almacen/Recursos/Recolectables/Pandemuerto.png" id="1_pmcv0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ul121"]
@@ -30,6 +30,8 @@ radius = 5.0
 height = 20.0
 
 [node name="PanMuerto" type="Area2D"]
+collision_layer = 32
+collision_mask = 2
 script = ExtResource("1_4jnqq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

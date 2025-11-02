@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://vl8w4kqn5hrt"]
+[gd_scene load_steps=8 format=3 uid="uid://vl8w4kqn5hrt"]
 
 [ext_resource type="Script" uid="uid://b7qrxeey6c2lh" path="res://Scrips/Enemigo/Enemy.gd" id="1_dbsd8"]
 [ext_resource type="Texture2D" uid="uid://ddpmvhmiinruy" path="res://Almacen/Enemigos/Generico/Frames Walk/Walk1.png" id="2_6dvtt"]
 [ext_resource type="AnimationLibrary" uid="uid://df114efxeg4n0" path="res://Almacen/Enemigos/Generico/Animacion Generico.res" id="3_imkjk"]
 [ext_resource type="Texture2D" uid="uid://bsh03almcvuff" path="res://Almacen/Enemigos/Generico/Disparo/Disparo1.png" id="4_xqa8i"]
+[ext_resource type="Script" uid="uid://8usoojkd6mmu" path="res://Escenas/Enemys/hit.gd" id="5_hlgye"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oncqj"]
 radius = 6.0
@@ -59,11 +60,13 @@ position = Vector2(-30, 1)
 scale = Vector2(-1, 1)
 collision_layer = 0
 collision_mask = 2
+script = ExtResource("5_hlgye")
 
 [node name="Disparo" type="CollisionShape2D" parent="Fuego/Hit"]
 position = Vector2(7, -2)
 shape = SubResource("CircleShape2D_hlgye")
+disabled = true
 
 [node name="Timer" type="Timer" parent="."]
 
-[connection signal="body_entered" from="Fuego/Hit" to="." method="_on_hit_body_entered"]
+[connection signal="body_entered" from="Fuego/Hit" to="Fuego/Hit" method="_on_body_entered"]

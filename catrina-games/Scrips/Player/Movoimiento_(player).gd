@@ -8,39 +8,39 @@ const SPEED = 130.0
 const JUMP_VELOCITY = -340.0
 var esta_atacando: bool = false
 var is_dead: bool = false # Bloquea el control durante el respawn
-var Live := 3
-var Max_live:=3
+var Live = 3
+var Max_Live = 3
+
 
 @onready var anima := $AnimationPlayer
 @onready var Sprint := $Sprite2D
 @onready var colicion_ataque:= $Area2D
+
 func _ready() -> void:
 	anima.animation_finished.connect(_on_animation_finished)
 	$Area2D/CollisionShape2D.disabled = true
 
 func _physics_process(delta: float) -> void:
+
 	if is_dead:
 		velocity = Vector2.ZERO
 		return
-	
 	if direccion < 0:
 		colicion_ataque.position.x = -33
 	elif direccion != 0:
 		colicion_ataque.position.x = 1
-	
-	Sprint.flip_h = direccion < 0 if direccion != 0 else Sprint.flip_h
+		Sprint.flip_h = direccion < 0 if direccion != 0 else Sprint.flip_h
 	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
 	if Input.is_action_just_pressed("Saltar") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		
+	
 	direccion = Input.get_axis("Movimiento_Izquierda", "Movimiento_Derecha")
 	
 	if esta_atacando:
 		pass
-
 	elif Input.is_action_just_pressed("atacar"):
 		esta_atacando = true
 		anima.play("golpear")
@@ -67,7 +67,6 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direccion * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
 	move_and_slide()
 
 
@@ -79,6 +78,18 @@ func _on_animation_finished(anim_name: StringName):
 	elif anim_name == "resopanw":
 		is_dead = false
 		
+func Taking_D():
+		is_dead = true 
+		Live -= 1
+		saludcambio.emit()
+	
+		if Live <= 0:
+			GameOver()
+		else: 
+			position.y = position.y - 100
+			
+		if is_dead:
+			is_dead = false
 
 func GameOver():
 	is_dead = false

@@ -1,7 +1,6 @@
 extends CharacterBody2D
 class_name Enemy
 
-signal saludcambio
 var gravity = 15
 var walk_left = true
 var speed = 32
@@ -75,7 +74,3 @@ func _on_AnimatedSprite_frame_change():
 func _on_AnimatedSprite_animation_finished():
 	if anima.animation == "Death":
 		queue_free()
-func _on_hit_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player"):
-		player.Live = -1
-		saludcambio.emit()
