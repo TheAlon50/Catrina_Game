@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://buj5y4kjlg8tw"]
 
-[ext_resource type="Script" path="res://Movimiento.gd" id="1_4r6t7"]
+[ext_resource type="Script" uid="uid://cscewe1kk7jsn" path="res://Scrips/Enemigo/Movimiento.gd" id="1_ptv2k"]
 
 [node name="Movimiento" type="Node"]
-script = ExtResource("1_4r6t7")
+script = ExtResource("1_ptv2k")

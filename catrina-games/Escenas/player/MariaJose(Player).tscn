@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=3 uid="uid://cno31nfbcehlu"]
 
-[ext_resource type="Script" uid="uid://ub5l7s4me2im" path="res://Scrips/Player/Movoimiento_(player).gd" id="1_20v6q"]
+[ext_resource type="Script" uid="uid://cuo8kk5qcro6w" path="res://Scrips/Player/Movoimiento_(player).gd" id="1_20v6q"]
 [ext_resource type="Texture2D" uid="uid://bwk37xwsyahhp" path="res://Almacen/Personajes/Player/correr/Correr(1).png" id="1_q38hi"]
 [ext_resource type="Texture2D" uid="uid://bo1r5s0on3w8w" path="res://Almacen/Personajes/Player/correr/Correr(2).png" id="2_20v6q"]
 [ext_resource type="Texture2D" uid="uid://ti5om0ehnm2" path="res://Almacen/Personajes/Player/correr/Correr(3).png" id="3_fn6ky"]
@@ -153,6 +153,8 @@ _data = {
 radius = 18.248287
 
 [node name="MariaJose(Player)" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_20v6q")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -170,6 +172,8 @@ libraries = {
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(1, 0)
+collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(14, -23)

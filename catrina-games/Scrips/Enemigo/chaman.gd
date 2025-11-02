@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+signal saludcambio
 var gravity = 15
 var walk_left = true
 var speed = 32
@@ -9,7 +10,7 @@ var Dead = false
 @onready var anima = $Chaman
 @onready var Spri = $Chama
 @onready var Coll = $"Collision Cha"
-@onready var timer: Timer =$Timer 
+@export var player: CharacterBody2D
 
 func _physics_process(_delta):
 	if Dead == true: 
@@ -52,7 +53,8 @@ func Atacar():
 #Daño a jugador
 func Daño():
 	if $"Hit".is_colliding():
-		Vida.Live -= 1
+		player.Live = -1
+		saludcambio.emit()
 
 func Caminar():
 	if (Stop == false):

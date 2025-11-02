@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://d1wnk7ukrx12t"]
+[gd_scene load_steps=22 format=4 uid="uid://d1wnk7ukrx12t"]
 
 [ext_resource type="Texture2D" uid="uid://bcty4d85cw87m" path="res://Almacen/Recursos/Tiles/tiles_back.png" id="1_6th8p"]
 [ext_resource type="Texture2D" uid="uid://clrf46o73irxc" path="res://Almacen/Recursos/Tiles/tiles_MJajust.png" id="1_ux7eh"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://2b44d8n7nm3b" path="res://Almacen/Recursos/Interfaz_Usuario/Corazon_Lleno.png" id="10_86tta"]
 [ext_resource type="PackedScene" uid="uid://oscsa31qmtpc" path="res://Escenas/meta_provicional/Altar.tscn" id="12_86tta"]
 [ext_resource type="AudioStream" uid="uid://bhsv55l8ns51s" path="res://Almacen/Musica/gameplay.mp3" id="13_750rq"]
+[ext_resource type="PackedScene" uid="uid://c14ad71h4rkpl" path="res://Escenas/Enemys/Chaman.tscn" id="14_653r3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rqamo"]
 texture = ExtResource("1_6th8p")
@@ -3051,6 +3052,8 @@ theme_override_fonts/font = ExtResource("4_d7l6i")
 theme_override_font_sizes/font_size = 8
 
 [node name="Limites" type="StaticBody2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [node name="LimiteIzq" type="CollisionShape2D" parent="Limites"]
 position = Vector2(-100, 180)
@@ -3067,3 +3070,6 @@ position = Vector2(3684, 52)
 stream = ExtResource("13_750rq")
 volume_db = -5.887
 autoplay = true
+
+[node name="Chaman" parent="." instance=ExtResource("14_653r3")]
+position = Vector2(616, 146)

@@ -1,6 +1,7 @@
 extends CharacterBody2D
 class_name Enemy
 
+signal saludcambio
 var gravity = 15
 var walk_left = true
 var speed = 32
@@ -11,7 +12,8 @@ var Dead = false
 
 @onready var anima = $Generico
 @onready var Spri = $Sprite
-#@onready var Salud: Healt = $"Healt" as Healt 
+@export var player: CharacterBody2D
+
    
 
 func _physics_process(_delta):
@@ -75,4 +77,5 @@ func _on_AnimatedSprite_animation_finished():
 		queue_free()
 func _on_hit_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		Vida.Live -= 1
+		player.Live = -1
+		saludcambio.emit()

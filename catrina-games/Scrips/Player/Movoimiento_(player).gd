@@ -1,12 +1,15 @@
 extends CharacterBody2D
 
-class_name Movoimiento
+
+signal saludcambio
 
 var direccion := 0.0
 const SPEED = 130.0
 const JUMP_VELOCITY = -340.0
 var esta_atacando: bool = false
 var is_dead: bool = false # Bloquea el control durante el respawn
+var Live := 3
+var Max_live:=3
 
 @onready var anima := $AnimationPlayer
 @onready var Sprint := $Sprite2D
@@ -16,7 +19,6 @@ func _ready() -> void:
 	$Area2D/CollisionShape2D.disabled = true
 
 func _physics_process(delta: float) -> void:
-
 	if is_dead:
 		velocity = Vector2.ZERO
 		return
@@ -26,8 +28,8 @@ func _physics_process(delta: float) -> void:
 	elif direccion != 0:
 		colicion_ataque.position.x = 1
 	
-		Sprint.flip_h = direccion < 0 if direccion != 0 else Sprint.flip_h
-
+	Sprint.flip_h = direccion < 0 if direccion != 0 else Sprint.flip_h
+	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -43,7 +45,6 @@ func _physics_process(delta: float) -> void:
 		esta_atacando = true
 		anima.play("golpear")
 		$Area2D/CollisionShape2D.disabled = false
-		
 	else:
 		if not is_on_floor():
 			if velocity.y > 0:
@@ -81,11 +82,18 @@ func _on_animation_finished(anim_name: StringName):
 
 func GameOver():
 	is_dead = false
+	# Llamar la función de cambio de escena después del frame actual
+	call_deferred("cambiar_escena_gameover")
+
+func cambiar_escena_gameover():
 	get_tree().change_scene_to_file("res://Escenas/GameOver/GAMEOVER.tscn")
+	
 func respawn():
 	is_dead = true
-	Vida.Live = -1
-	if Vida.Live == 0:
+	Live -=1
+	saludcambio.emit()
+	
+	if Live == 0:
 		GameOver()
 	else:
 		global_position = Vector2(27, 214)
@@ -95,7 +103,8 @@ func respawn():
 		await get_tree().create_timer(0.95).timeout 
 		if is_dead:
 			is_dead = false
-	
+
+
 	#detector de colicion en ataque
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Chaman"):

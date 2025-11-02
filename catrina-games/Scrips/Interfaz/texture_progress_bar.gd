@@ -11,4 +11,4 @@ func _ready():
 func update_barra():
 	if player:
 		# Actualiza la barra según la vida
-		value = player.live * 100 / player.max_live
+		value = player.Live * 100 / player.Max_live
